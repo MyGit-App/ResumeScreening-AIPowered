@@ -213,18 +213,13 @@ st.write(
     "Every candidate assessment is generated from retrieved resume excerpts."
 )
 
-with st.sidebar:
-    st.header("Screening setup")
-    api_key = st.text_input(
-        "OpenRouter API key",
-        value=get_default_api_key(),
-        type="password",
-        help="Read from OPENROUTER_API_KEY in .env or enter it for this session.",
-    )
-    include_samples = st.checkbox(
-        f"Include sample resumes ({', '.join(SAMPLE_CANDIDATE_NAMES)})",
-        help="Adds the listed sample PDFs to the uploaded resumes.",
-    )
+api_key = os.environ.get("OPENROUTER_API_KEY", "")
+if not api_key:
+    try:
+        api_key = st.secrets.get("OPENROUTER_API_KEY", "")
+    except FileNotFoundError:
+        api_key = ""
+
     st.caption(
         "Resume embeddings are created locally. Resume excerpts and the job "
         "description are sent to OpenRouter for Nemotron evaluation. "
@@ -262,12 +257,7 @@ if submitted:
         (uploaded_file.name, uploaded_file.getvalue())
         for uploaded_file in uploaded_files or []
     ]
-    if include_samples:
-        resume_inputs.extend(
-            (sample_path.name, sample_path.read_bytes())
-            for sample_path in SAMPLE_RESUME_PATHS
-        )
-
+    
     if not api_key.strip():
         st.error(
             "Enter an OpenRouter API key in the sidebar or set "
