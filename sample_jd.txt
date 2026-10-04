@@ -1,0 +1,26 @@
+Position: Senior Data Scientist
+
+Role overview:
+Design, build, and deploy machine-learning solutions for business and product
+problems. Work with engineering and product teams to turn data into reliable,
+measurable outcomes.
+
+Required qualifications:
+- Five or more years of relevant data science or machine-learning experience.
+- Strong Python and SQL skills.
+- Hands-on experience with machine-learning frameworks such as scikit-learn,
+  TensorFlow, or PyTorch.
+- Experience with cloud platforms such as AWS, Azure, or Google Cloud.
+- Experience deploying and monitoring models in production.
+- Knowledge of statistical analysis, experiment design, and communicating
+  results to non-technical stakeholders.
+
+Preferred qualifications:
+- Experience with Spark or another distributed data-processing framework.
+- Experience with Docker, Kubernetes, or MLOps tools.
+- Familiarity with NLP, large language models, vector search, or RAG.
+
+Responsibilities:
+- Develop reproducible data and machine-learning pipelines.
+- Evaluate model performance and communicate limitations.
+- Collaborate with cross-functional partners on responsible deployment.
